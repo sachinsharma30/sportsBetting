@@ -1,7 +1,7 @@
 import requests
 import csv
 
-apiKey = "" #put ur own api key
+apiKey = "6454e2b0d042e75beaa70764bbec7b64" #put ur own api key
 idURL = "https://api.the-odds-api.com/v4/sports/americanfootball_nfl/odds/?regions=us&oddsFormat=american&apiKey=" + apiKey
 
 idResponse = requests.get(idURL)
@@ -28,7 +28,7 @@ with open('suggestedPicks.csv', 'w', newline='') as csvfile:
             outcomes = [outcome for bookmaker in gameData.get("bookmakers", []) for outcome in bookmaker.get("markets", [])[0].get("outcomes", [])]
 
             for outcome in outcomes:
-                if int(outcome.get("price", 0)) <= -130:
+                if int(outcome.get("price", 0)) <= -130 and int(outcome.get("price", 0)) >= -200:
                     csvwriter.writerow([
                         outcome.get('description', ''),
                         outcome.get('name', ''),
