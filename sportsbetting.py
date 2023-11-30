@@ -1,7 +1,7 @@
 import requests
 import csv
 
-apiKey = "6454e2b0d042e75beaa70764bbec7b64" #put ur own api key
+apiKey = "" #api key
 idURL = "https://api.the-odds-api.com/v4/sports/americanfootball_nfl/odds/?regions=us&oddsFormat=american&apiKey=" + apiKey
 
 idResponse = requests.get(idURL)
